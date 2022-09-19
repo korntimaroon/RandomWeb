@@ -41,13 +41,13 @@ export default function Random() {
     document.getElementById("onChangePairs").innerHTML = Math.round(pairs);
   }
   return (
-    <div className="bg-gradient-to-tr from-green-300 to-blue-500 min-h-[100vh] overflow-y-auto max-h-auto w-screen flex flex-col justify-center items-center overflow-x-hidden">
-      <div className="backdrop-blur-sm bg-white/30 w-auto h-auto p-10 rounded-[10px]">
+    <div className="bg-gradient-to-tr from-green-300 to-blue-500 min-h-screen overflow-y-hidden max-h-auto w-screen flex flex-col justify-center items-center overflow-x-hidden phone:overflow-x-hidden">
+      <div className="backdrop-blur-sm bg-white/30 w-auto h-auto p-10 rounded-[10px] phone:p-2">
         <div className="">
           <a className="font-mono text-lg font-bold text-gray-700">Random Pair Generator</a>
         </div>
-        <div className="bg-white w-[500px] h-auto">
-          <div className="bg-white w-[500px] h-[50px] drop-shadow-lg">
+        <div className="bg-white w-[500px] phone:w-screen h-auto">
+          <div className="bg-white w-[500px] phone:w-screen h-[50px] drop-shadow-lg">
             <div className="w-[50px] h-max p-2 float-left">
               <p className="font-mono text-gray-700 text-sm">Pairs</p>
               <p className="font-mono text-black text-lg font-bold leading-3" id="onChangePairs">0</p>

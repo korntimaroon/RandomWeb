@@ -4,6 +4,11 @@ export default function Random() {
   const [randomData, setRandomData] = useState([])
   const [randomResult, setRandomResult] = useState([])
 
+  try {
+    document.getElementById("data").value = localStorage.getItem('data');
+  } catch(e) {
+    
+  }
   const randomUser = () => {
     document.getElementById("result").innerHTML = null;
     const data = document.getElementById("data").value;
@@ -37,6 +42,7 @@ export default function Random() {
   }
   const dataUpdate = () => {
     const data = document.getElementById("data").value;
+    localStorage.setItem('data', data);
     var pairs = (data.split(/\n/)).length / 2
     document.getElementById("onChangePairs").innerHTML = Math.round(pairs);
   }
@@ -46,7 +52,7 @@ export default function Random() {
         <div className="">
           <a className="font-mono text-lg font-bold text-gray-700">Random Pair Generator</a>
         </div>
-        <div className="bg-white w-[500px] phone:w-screen h-auto">
+        <div className="bg-white w-[500px] phone:w-screen h-auto rounded-[10px]">
           <div className="bg-white w-[500px] phone:w-screen h-[50px] drop-shadow-lg">
             <div className="w-[50px] h-max p-2 float-left">
               <p className="font-mono text-gray-700 text-sm">Pairs</p>
@@ -54,7 +60,7 @@ export default function Random() {
             </div>
             <button className="float-right w-[100px] h-[100%] bg-gray-200 font-bold text-gray-700 p-2 font-mono hover:bg-gray-300 duration-150" onClick={randomUser}>Random</button>
           </div>
-          <textarea className="w-[500px] h-[200px] font-mono text-sm font-medium text-gray-700 p-2 outline-none" id="data" onChange={dataUpdate} />
+          <textarea className="w-[500px] h-[200px] font-mono text-sm font-bold text-gray-700 p-2 outline-none" id="data" onChange={dataUpdate} />
         </div>
         <div>
           <a className="font-mono text-sm text-gray-700 font-bold">Result:</a>
